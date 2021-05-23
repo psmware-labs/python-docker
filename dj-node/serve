@@ -1,0 +1,34 @@
+#!/bin/bash
+# /usr/local/bin/serve
+# Patrick McLeam <patrick.mclean@me.com>
+### BEGIN INIT INFO
+# Description:       Controls JDevelopment servers for the project
+### END INIT INFO
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
+
+DESC="Thanatos Development Servers"
+NAME=serve
+SCRIPTNAME=/usr/local/bin/$NAME
+
+case "$1" in
+  api)
+    cd /app/api
+    python manage.py runserver 0.0.0.0:5000
+    ;;
+  docs)
+    cd /app/
+    /home/vscode/.local/bin/mkdocs serve -a 0.0.0.0:8000
+    ;;
+  ui)
+    cd /app/ui
+    npm start
+    ;;
+  *)
+    echo "Usage: $SCRIPTNAME {api|ui|docs}" >&2
+    exit 3
+    ;;
+esac
+
+exit 0
+

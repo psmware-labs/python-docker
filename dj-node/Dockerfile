@@ -22,6 +22,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ENV NODE_VERSION 14.17.0
 
+COPY serve /usr/local/bin/serve
+RUN chmod 755 /usr/local/bin/serve
+
 RUN for key in \
       4ED778F539E3634C779C87C6D7062848A1AB005C \
       94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
