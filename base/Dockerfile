@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     vim \
     openssh-client \
     sudo \
-    curl
+    xz-utils
 
 WORKDIR /app
 RUN echo "===> Creating Python Packages tools user and group..." \

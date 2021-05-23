@@ -1,4 +1,3 @@
-export GPG_TTY=$(tty)
 export ZSH="/home/vscode/.oh-my-zsh"
 ZSH_THEME="gnzh"
 CASE_SENSITIVE="true"
