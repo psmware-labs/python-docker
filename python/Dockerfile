@@ -22,7 +22,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install --no-install-recommends -y \
     libcairo2 \
     gobject-2.0 \
-    pango-1.0
+    pango-1.0 \
+    sqlite3
 RUN echo "===> Cleaning up package list..." \
     && apt-get autoremove -y \
     && apt-get clean -y \
