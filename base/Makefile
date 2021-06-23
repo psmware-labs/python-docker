@@ -1,7 +1,7 @@
 SHELL       := /bin/sh
-IMAGE       := base
+IMAGE       := python
 REPOSITORY  := psmwareltd
-VERSION     := 3.9.5
+VERSION     := 1.1
 
 ### Executables
 DOCKER := docker
@@ -16,4 +16,4 @@ build:
 .PHONY: push
 push:
 	$(DOCKER) push $(REPOSITORY)/$(IMAGE):$(VERSION)
-	$(DOCKER) push $(REPOSITORY)/$(IMAGE):latest
+	$(DOCKER) push $(REPOSITORY)/$(IMAGE):latest 

@@ -11,7 +11,7 @@
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU Affero General Public License for more details.
-FROM psmwareltd/python:3.9.5
+FROM psmwareltd/python:1.1
 LABEL author="Pat McLean" \
       maintainer="Pat McLean<github@psmware.ie>"
 

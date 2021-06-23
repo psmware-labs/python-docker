@@ -11,7 +11,7 @@
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU Affero General Public License for more details.
-FROM python:3.9-slim
+FROM python:3.9-buster
 LABEL author="Pat McLean" \
       maintainer="Pat McLean<github@psmware.ie>"
 # Avoid warnings by switching to noninteractive
@@ -31,13 +31,13 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     openssh-client \
     sudo \
     xz-utils \
-    net-tools
+    sqlite3 \
+    postgresql-client
 
-WORKDIR /app
 RUN echo "===> Creating Python Packages tools user and group..." \
     && groupadd --gid $USER_GID $USERNAME \
-    && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    && chown -fR $USERNAME:$USERNAME /app
+    && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME
+WORKDIR /home/$USERNAME/
 USER ${USERNAME}
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 RUN echo "===> Setting up development user shell..."
@@ -49,7 +49,6 @@ RUN echo "===> Installing Python Packages tools... "
 RUN /home/$USERNAME/.poetry/bin/poetry config virtualenvs.create false
 # Setting up user access
 USER root
-WORKDIR /root
 RUN echo "===> Setting up development user sudo access..." \
     # Add sudo support for non-root user
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
@@ -58,10 +57,7 @@ RUN chown -fR $USERNAME:$USERNAME /home/$USERNAME \
     && echo "===> Cleaning up package list..." \
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -fR /root/*.txt \
-    && rm -fR /app
-
+    && rm -rf /var/lib/apt/lists/*
 
 
 
