@@ -16,4 +16,4 @@ build:
 .PHONY: push
 push:
 	$(DOCKER) push $(REPOSITORY)/$(IMAGE):$(VERSION)
-	$(DOCKER) push $(REPOSITORY)/$(IMAGE):latest 
+	$(DOCKER) push $(REPOSITORY)/$(IMAGE):latest
