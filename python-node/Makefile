@@ -1,7 +1,7 @@
 SHELL       := /bin/sh
-IMAGE       := dj-node
+IMAGE       := pynode
 REPOSITORY  := psmwareltd
-VERSION     := 1.0
+VERSION     := 1.1
 
 ### Executables
 DOCKER := docker

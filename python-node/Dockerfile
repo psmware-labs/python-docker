@@ -11,7 +11,7 @@
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU Affero General Public License for more details.
-FROM psmwareltd/django:3.2.3
+FROM psmwareltd/python:1.1
 LABEL author="Pat McLean" \
       maintainer="Pat McLean<github@psmware.ie>"
 
@@ -20,7 +20,7 @@ USER root
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
-ENV NODE_VERSION 14.17.1
+ENV NODE_VERSION 14.17.3
 
 COPY serve /usr/local/bin/serve
 RUN chmod 755 /usr/local/bin/serve

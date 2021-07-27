@@ -1,5 +1,0 @@
-#!/bin/sh
-cd /app/api
-defapp=core
-APP=${1:-$defapp}   # Defaults to core application
-python manage.py makemigrations $APP

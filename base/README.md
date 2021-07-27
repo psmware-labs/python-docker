@@ -1,2 +1,2 @@
-# MKDocs Lab
+# Base Python Image
 
