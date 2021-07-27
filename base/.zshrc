@@ -15,7 +15,8 @@ plugins=(
   tig
   vscode
 )
-
+# ∂isable auto updating oh-my-zsh
+DISABLE_AUTO_UPDATE="true"
 #ZSH stuff
 source $ZSH/oh-my-zsh.sh
 # zextension for browsing
