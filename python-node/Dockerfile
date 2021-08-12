@@ -22,8 +22,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ENV NODE_VERSION 14.17.3
 
-COPY serve /usr/local/bin/serve
-RUN chmod 755 /usr/local/bin/serve
+RUN mkdir /home/vscode/bin
+COPY serve /home/vscode/bin/serve
+RUN chmod 700 /home/vscode/bin/serve
+RUN chown -fR vscode:vscode /home/vscode/bin
 
 RUN for key in \
     4ED778F539E3634C779C87C6D7062848A1AB005C \

@@ -1,15 +1,13 @@
 #!/bin/bash
-# /usr/local/bin/serve
-# Patrick McLeam <patrick.mclean@me.com>
+# /home/vscode/bin/serve
+# Patrick McLeam <github@psmware.ie>
 ### BEGIN INIT INFO
-# Description:       Controls JDevelopment servers for the project
+# Description:       Controls my UI/API/Docs servers for the project
 ### END INIT INFO
-
-PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
 
 DESC="Python/Node Development Servers"
 NAME=serve
-SCRIPTNAME=/usr/local/bin/$NAME
+SCRIPTNAME=/home/vscode/bin/$NAME
 
 case "$1" in
   api)
